@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Company>CompanyName</Company>
+    <Company>MyFancyCompany</Company>
     <Version>3.2.1</Version>
-    <Product>ProductName</Product>
+    <Product>MyFancyProduct</Product>
     <Authors>TestToolsLibraryAuthors</Authors>
     <PackageId>Packageid</PackageId>
   </PropertyGroup>

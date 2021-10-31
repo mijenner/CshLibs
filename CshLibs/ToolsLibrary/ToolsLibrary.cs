@@ -202,49 +202,46 @@ namespace ToolsLibrary
         {
             Assembly anAssy = typeof(T).Assembly;
 
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(anAssy.Location);
-            var companyName = fvi.CompanyName;
-            var productName = fvi.ProductName;
-            var productVersion = fvi.ProductVersion;
-
-            if (fvi.ProductName != null)
+            object[] attribs;
+            attribs = anAssy.GetCustomAttributes(typeof(AssemblyProductAttribute), true);
+            if (attribs.Length > 0)
             {
-                anAbout.Title = fvi.ProductName;
+                anAbout.Title = ((AssemblyProductAttribute)attribs[0]).Product;
             }
             else
             {
                 anAbout.Title = "";
             }
 
-
-            if (fvi.CompanyName != null)
+            attribs = anAssy.GetCustomAttributes(typeof(AssemblyCompanyAttribute), true);
+            if (attribs.Length > 0)
             {
-                anAbout.Company = fvi.CompanyName;
+                anAbout.Company = ((AssemblyCompanyAttribute)attribs[0]).Company;
             }
             else
             {
                 anAbout.Company = "";
             }
 
-            if (fvi.ProductVersion != null)
+            attribs = anAssy.GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute), true);
+            if (attribs.Length > 0)
             {
-                anAbout.Version = fvi.ProductVersion;
+                anAbout.Version = ((AssemblyInformationalVersionAttribute)attribs[0]).InformationalVersion;
             }
             else
             {
                 anAbout.Version = "";
             }
 
-
-            if (fvi.FileVersion != null)
+            attribs = anAssy.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), true);
+            if (attribs.Length > 0)
             {
-                anAbout.FileVersion = fvi.FileVersion;
+                anAbout.FileVersion = ((AssemblyFileVersionAttribute)attribs[0]).Version;
             }
             else
             {
                 anAbout.FileVersion = "";
             }
-
 
             return true;
         }
