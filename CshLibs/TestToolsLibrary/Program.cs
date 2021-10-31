@@ -103,9 +103,9 @@ namespace TestToolsLibrary
 
 
             // Assembly info: 
-            About anAbout;
+            About anAbout = new About();
 
-            Assy.GetAssy<Program>(out anAbout);
+            Assy.GetAssy<Program>(ref anAbout);
             Console.WriteLine("--------------------");
             Console.WriteLine("Assembly info: ");
             Console.WriteLine("Title = " + anAbout.Title);
@@ -113,7 +113,7 @@ namespace TestToolsLibrary
             Console.WriteLine("Version = " + anAbout.Version);
             Console.WriteLine("FileVersion = " + anAbout.FileVersion);
 
-            Assy.GetAssy<About>(out anAbout);
+            Assy.GetAssy<About>(ref anAbout);
             Console.WriteLine("--------------------");
             Console.WriteLine("Assembly info: ");
             Console.WriteLine("Title = " + anAbout.Title);

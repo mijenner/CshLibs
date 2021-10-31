@@ -187,18 +187,57 @@ namespace ToolsLibrary
         }
     }
 
-    public struct About
+    public class About
     {
-        public string Title;
-        public string Company;
-        public string Version;
-        public string FileVersion;
+        private string title;
+        private string company;
+        private string version;
+        private string fileVersion;
+
+        public About() 
+        {
+            this.title = ""; 
+            this.company = ""; 
+            this.version = ""; 
+            this.fileVersion = ""; 
+        }
+
+        public string Title { 
+            get {
+                return title; 
+            }
+            set{
+                title = value; 
+            } }
+        public string Company { 
+            get{
+                return company; 
+            }
+            set {
+                company = value; 
+            } }
+        public string Version { 
+            get{
+                return version; 
+            } 
+            set{
+                version = value; 
+            } }
+        public string FileVersion { 
+            get{
+                return fileVersion; 
+            } 
+            set{
+                fileVersion = value; 
+            } }
+
+
     }
 
     public static class Assy
     {
 
-        public static bool GetAssy<T>(out About anAbout)
+        public static bool GetAssy<T>(ref About anAbout)
         {
             Assembly anAssy = typeof(T).Assembly;
 
