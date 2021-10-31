@@ -17,3 +17,5 @@ Provides WriteXML(), ReadXML().
 ## Assy 
 Provides GetAssy() which reads Title, Company, Version and FileVersion from assembly. 
 
+# Usage 
+See examples in TestToolsLibrary. 
