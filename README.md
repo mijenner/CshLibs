@@ -15,7 +15,7 @@ Provides IsDirectoryWritable().
 Provides WriteXML(), ReadXML(). 
 
 ## Assy 
-Provides GetAssy() which reads Title, Company, Version and FileVersion from assembly. 
+Provides GetAssy() which reads Title, Company, Version and FileVersion from assembly / fileversioninfo. 
 
 # Usage 
 See examples in TestToolsLibrary in Program.cs. 
