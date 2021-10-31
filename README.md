@@ -18,4 +18,4 @@ Provides WriteXML(), ReadXML().
 Provides GetAssy() which reads Title, Company, Version and FileVersion from assembly. 
 
 # Usage 
-See examples in TestToolsLibrary. 
+See examples in TestToolsLibrary in Program.cs. 
