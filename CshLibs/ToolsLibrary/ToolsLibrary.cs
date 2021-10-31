@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -201,41 +202,43 @@ namespace ToolsLibrary
         {
             Assembly anAssy = typeof(T).Assembly;
 
-            object[] attribs;
-            attribs = anAssy.GetCustomAttributes(typeof(AssemblyTitleAttribute), true);
-            if (attribs.Length > 0)
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(anAssy.Location);
+            var companyName = fvi.CompanyName;
+            var productName = fvi.ProductName;
+            var productVersion = fvi.ProductVersion;
+
+            if (fvi.ProductName != null)
             {
-                anAbout.Title = ((AssemblyTitleAttribute)attribs[0]).Title;
+                anAbout.Title = fvi.ProductName;
             }
             else
             {
                 anAbout.Title = "";
             }
 
-            attribs = anAssy.GetCustomAttributes(typeof(AssemblyCompanyAttribute), true);
-            if (attribs.Length > 0)
+
+            if (fvi.CompanyName != null)
             {
-                anAbout.Company = ((AssemblyCompanyAttribute)attribs[0]).Company;
+                anAbout.Company = fvi.CompanyName;
             }
             else
             {
                 anAbout.Company = "";
             }
 
-            attribs = anAssy.GetCustomAttributes(typeof(AssemblyVersionAttribute), true);
-            if (attribs.Length > 0)
+            if (fvi.ProductVersion != null)
             {
-                anAbout.Version = ((AssemblyVersionAttribute)attribs[0]).Version;
+                anAbout.Version = fvi.ProductVersion;
             }
             else
             {
                 anAbout.Version = "";
             }
 
-            attribs = anAssy.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), true);
-            if (attribs.Length > 0)
+
+            if (fvi.FileVersion != null)
             {
-                anAbout.FileVersion = ((AssemblyFileVersionAttribute)attribs[0]).Version;
+                anAbout.FileVersion = fvi.FileVersion;
             }
             else
             {

@@ -8,7 +8,6 @@ namespace TestToolsLibrary
     {
         static void Main(string[] args)
         {
-
             if (OperatingSystemInfo.IsWindows())
             {
                 Console.WriteLine("Platform: Windows");
@@ -21,6 +20,7 @@ namespace TestToolsLibrary
             {
                 Console.WriteLine("Platform: Linux");
             }
+            
 
 
             string folder = "";
